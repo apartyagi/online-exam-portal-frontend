@@ -1,0 +1,44 @@
+<mat-card-title> All Questions</mat-card-title><br>
+<div class="text-right">
+    <button mat-raised-button [routerLink]="'/adam-dash/addques/'+quid">Add Questions</button>
+</div>
+<div *ngFor="let ques of Question ; let i = index">
+    <br>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Q{{i+1}} {{ques.content}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="bootstrap-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>1)</b> {{ques.option1}}
+                        </div>
+                        <div class="col-md-6">
+                            <b>2)</b> {{ques.option2}}
+                        </div>
+                        <div class="col-md-6">
+                            <b>3)</b> {{ques.option3}}
+                        </div>
+                        <div class="col-md-6">
+                            <b>4)</b> {{ques.option4}}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <br>
+        <div>
+            <b>Correct Answer:</b> {{ques.answer}}
+        </div>
+        <br>
+        <div>
+            <button mat-button color="primary" [routerLink]="'/adam-dash/upd-ques/'+ques.id" >Update</button>
+            <button mat-button color="warn" (click)="dele_question(ques.id)">Delete</button>
+        </div>
+    </mat-card>
+    <br>
+</div>

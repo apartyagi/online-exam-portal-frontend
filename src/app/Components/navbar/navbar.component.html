@@ -1,0 +1,70 @@
+<p>
+  <mat-toolbar>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon routerLink="/">book</mat-icon>
+    </button>
+    <a routerLink="/" mat-icon-button>
+      <a mat-button>Exam Portal</a>
+    </a>
+    <span class="example-spacer"></span>
+    <ng-container *ngIf="pop(); else elsedone">
+      <a
+        (click)="logout()"
+        mat-button
+        color="warn"
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        Logout
+      </a>
+    </ng-container>
+    <ng-template #elsedone>
+      <a
+        routerLink="/login"
+        mat-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        Login
+      </a>
+    </ng-template>
+
+    <ng-container *ngIf="pop(); else elseblock">
+      <div>
+        <ng-container *ngIf="check_permission(); else els">
+            <a routerLink='/adam-dash'
+            mat-button
+            color="primary"
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+           > DashBoard
+        </a>
+        </ng-container>
+        <ng-template #els>
+          <a routerLink='/norm-dash'
+            mat-button
+            color="primary"
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+           > DashBoard
+      </a>
+        </ng-template>
+      </div>
+    </ng-container>
+
+    <ng-template #elseblock>
+      <a
+        routerLink="/sign-up"
+        mat-button
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+        Register
+      </a>
+    </ng-template>
+  </mat-toolbar>
+</p>

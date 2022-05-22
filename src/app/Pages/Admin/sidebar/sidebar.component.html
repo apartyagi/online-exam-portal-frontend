@@ -1,0 +1,37 @@
+<mat-card>
+
+    <mat-action-list>
+        <mat-list-item routerLink='home' role="listitem">Home
+            <mat-icon matSuffix>home</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink='profile' role="listitem">Profile
+            <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink='cat' role="listitem">Category
+            <mat-icon matSuffix>list</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink='addcat' role="listitem">Add Category
+            <mat-icon matSuffix>add_circle_outline</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink='quizz' role="listitem">Quizz
+            <mat-icon matSuffix>quiz</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink='addquizz' role="listitem">Add Quizzes
+            <mat-icon matSuffix>add</mat-icon>
+        </mat-list-item>
+        <!-- <mat-list-item routerLink='ques' role="listitem">Questions
+            <mat-icon matSuffix>question_answer</mat-icon>
+        </mat-list-item>
+        <mat-list-item routerLink='addques' role="listitem">Add Questions
+            <mat-icon matSuffix>note_add</mat-icon>
+        </mat-list-item> -->
+        <!-- <mat-list-item routerLink='op' role="listitem">Advance Options
+            <mat-icon matSuffix>supervisor_account</mat-icon>
+        </mat-list-item> -->
+        <mat-list-item (click)="logout()" role="listitem">Logout
+            <mat-icon matSuffix>logout</mat-icon>
+        </mat-list-item>
+       
+      </mat-action-list>
+
+</mat-card>

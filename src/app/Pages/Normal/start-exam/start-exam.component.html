@@ -1,0 +1,105 @@
+<div class="bootstrap-wrapper" *ngIf="!submit_res"> 
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-2">
+        <mat-card class="boxer">
+          <h1>Note:&#8681;</h1>
+          <p>Only:={{get_formatted_Time()}} left</p>
+          <mat-spinner color="warn" mode="determinate" [value]="(timer/(this.question_load.length *2 *60))*100"></mat-spinner>
+
+          <marquee direction="up" scrollamount="2">
+            <ul>
+              <li><i> You can't press back button</i></li>
+              <li><i> You can't edit url </i></li>
+              <li><i> Cheating is prohibited </i></li>
+              <li>
+                <i> You cant open another tab while your exam is running</i>
+              </li>
+              <li>
+                <i>if you are trying to misbhave your exam is at risk </i>
+              </li>
+              <li>Your Screen Was recording....</li>
+            </ul>
+          </marquee>
+        </mat-card>
+      </div>
+
+      <div class="col-md-10 col-sm-10">
+        <mat-card>
+        <div *ngFor="let ques of question_load; let i = index">
+        <mat-card >
+          <div class="row">
+            <div class="col-md-10">
+              <mat-card-title>
+                Q{{ i + 1 }}) <span> {{ ques.content }}</span>
+              </mat-card-title
+              >
+            </div>
+            <div class="col-md-5 padd">
+              <input
+                type="radio"
+                [value]="ques.option1"
+                [name]="ques.id"
+                required
+                [(ngModel)]="ques.given_answer"
+              />{{ ques.option1 }}
+            </div>
+            <div class="col-md-5 padd">
+              <input
+                type="radio"
+                [(ngModel)]="ques.given_answer"
+                [name]="ques.id"
+              
+                [value]="ques.option2"
+              />{{ ques.option2 }}
+            </div>
+            <div class="col-md-5 padd">
+              <input
+                type="radio"
+                [(ngModel)]="ques.given_answer"
+                [name]="ques.id"
+                
+                [value]="ques.option3"
+              />{{ ques.option3 }}
+            </div>
+            <div class="col-md-5 padd">
+              <input
+                type="radio"
+                [(ngModel)]="ques.given_answer"
+                [name]="ques.id"
+                
+                [value]="ques.option4"
+              />{{ ques.option4 }}
+            </div>
+          </div>
+        </mat-card>
+        <br>
+      </div>
+        <div class="text-center" style="margin: 50px">
+          <button mat-raised-button (click)="submit_exam()">Complete</button>
+        </div>
+      </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- resuly -->
+
+<div class="bootstrap-wrapper" *ngIf="submit_res">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                    <h1>Your Score is={{result}}</h1>
+                    <h1>Total Attemted Question={{atteptanswe}}</h1>
+                    <h1>Wrong Questions={{wronganswe}}</h1>
+                    <h1>Per Question Answer{{per_question_n}}</h1>
+                    <h1>Correct Questions={{correctanswe}}</h1>
+                    <mat-divider></mat-divider>
+                    <button mat-raised-button [routerLink]="''">Home</button>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

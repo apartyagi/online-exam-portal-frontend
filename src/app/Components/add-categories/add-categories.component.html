@@ -1,0 +1,31 @@
+<mat-card>  
+    <div mat-subheader>Add category</div>
+    <form (ngSubmit)="add_cat()">
+    <div class="size_form text-center">
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Tittle</mat-label>
+                <input matInput 
+                placeholder="Placeholder" 
+                required
+                name="title"
+                [(ngModel)]="category.title"
+                >
+                <mat-icon matSuffix>title</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Description</mat-label>
+                <input matInput
+                name="desciption"
+                 placeholder="Placeholder" 
+                 [(ngModel)]="category.description"
+                 required>
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+        </p>
+        <button type="submit" mat-stroked-button>Add_Category</button>
+    </div>
+    </form>
+</mat-card>

@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-label>categories</mat-label>
+    <mat-action-list>
+        <mat-list-item style="color: blueviolet;" [routerLink]="'/norm-dash/resu'">Result</mat-list-item>
+    </mat-action-list>
+    <mat-action-list role="list">
+        <mat-list-item role="listitem" [routerLink]="'/norm-dash/quiz/'+a.id" *ngFor="let a of category">{{a.title}}</mat-list-item>
+    </mat-action-list>
+</mat-card>

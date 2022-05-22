@@ -1,0 +1,48 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{user.first_name + user.last_name}}</mat-card-title>
+      <mat-card-subtitle>{{user.username}}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <table class="table-pro">
+        <tr>
+            <th scope="col">Username</th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Userid</th>
+            <td>{{user.id}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Phone</th>
+            <td>{{user.phone}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Email</th>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <th scope="col">active</th>
+            <td>{{user.enable}}</td>
+        </tr>
+        <tr>
+            <th scope="col">authority</th>
+                    <td>{{user.authorities}}</td>
+            
+        </tr>
+      </table>
+
+      <br>
+      <p style="color: black; font-weight: bold;">Status</p>
+    <mat-card-content>
+      <p>
+        
+        {{user.about}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Edit</button>
+      <button mat-button color="warn">Delete</button>
+    </mat-card-actions>
+  </mat-card>

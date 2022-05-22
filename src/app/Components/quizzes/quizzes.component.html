@@ -1,0 +1,20 @@
+<mat-card class="example-card">
+    <mat-list>
+        <div mat-subheader>Quiz</div>
+        <mat-list-item *ngFor="let fol of quiz">
+          <mat-icon mat-list-icon>quiz</mat-icon>
+          <div mat-line><b>{{fol.title}}</b></div>
+          <div mat-line><b>Description= </b>{{fol.description}}</div>
+          <div mat-line><b>Status= </b>{{fol.active}}</div>
+          <div mat-line><b>No of Question= </b>{{fol.no_of_question}}</div>
+          <div mat-line><b>Max Marks= </b>{{fol.max_marks}}</div>
+          <div mat-line><b>Category======> </b>{{fol.category.title}}</div>
+          <a mat-raised-button color="primary" [routerLink]="'/adam-dash/ques/'+fol.id" (click)="watch_questions(fol.id)">Questions</a>
+          <mat-divider></mat-divider>
+          <button mat-button><mat-icon (click)="edit(fol.id)">edit</mat-icon></button>
+          <button mat-button color="warn" (click)="del(fol.id)"><mat-icon>delete</mat-icon></button>
+        </mat-list-item>
+        
+    </mat-list>
+    
+</mat-card>

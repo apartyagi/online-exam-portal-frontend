@@ -1,0 +1,77 @@
+<mat-card>  
+    <div mat-subheader>Update Quiz</div>
+    <form (ngSubmit)="upd_quiz()">
+    <div class="size_form text-center">
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Tittle</mat-label>
+                <input matInput 
+                placeholder="Placeholder" 
+                required
+                name="title"
+                [(ngModel)]="quiz.title"
+                >
+                <mat-icon matSuffix>title</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Description</mat-label>
+                <input matInput
+                 name="desciption"
+                 placeholder="Placeholder" 
+                 [(ngModel)]="quiz.description"
+                 required>
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>max_marks</mat-label>
+                <input matInput
+                 name="max_marks"
+                 type="number"
+                 placeholder="Placeholder" 
+                 [(ngModel)]="quiz.max_marks"
+                 required>
+                <mat-icon matSuffix>dialpad</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>no_of_question</mat-label>
+                <input matInput
+                 name="no_of_question"
+                 type="number"
+                 placeholder="Placeholder" 
+                 [(ngModel)]="quiz.no_of_question"
+                 required>
+                <mat-icon matSuffix>dialpad</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>active</mat-label>
+                <input matInput
+                 name="active"
+                 placeholder="Placeholder" 
+                 [(ngModel)]="quiz.active"
+                 required>
+                <mat-icon matSuffix>toggle_off</mat-icon>
+            </mat-form-field>
+        </p>
+         <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Select catergory For quiz</mat-label>
+                <mat-select [(ngModel)]="quiz.category.id" name="category">
+                        <mat-option *ngFor="let kal of catergory" [value]="kal.id">
+                            {{kal.title}}
+                        </mat-option>
+    
+                    </mat-select>
+              </mat-form-field>
+        </p>
+        <button type="submit" mat-stroked-button>Update_Quiz</button>
+    </div>
+    </form>
+</mat-card>

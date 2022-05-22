@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+    <mat-list>
+        <div mat-subheader>Category</div>
+        <mat-list-item *ngFor="let fol of category">
+          <mat-icon mat-list-icon>category</mat-icon>
+          <div mat-line>{{fol.title}}</div>
+          <div mat-line>{{fol.description}}</div>
+          <button mat-raised-button (click)="edit(fol.id)" ><mat-icon>edit</mat-icon></button>
+          <button mat-raised-button (click)="delete(fol.id)"><mat-icon>delete</mat-icon></button>
+        </mat-list-item>
+    </mat-list>
+    
+</mat-card>

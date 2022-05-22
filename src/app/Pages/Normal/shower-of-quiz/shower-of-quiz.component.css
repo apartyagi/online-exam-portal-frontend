@@ -1,0 +1,4 @@
+.example-header-image {
+    background-image: url('/assets/img/books.png');
+    background-size: cover;
+  }

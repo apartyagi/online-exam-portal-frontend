@@ -1,0 +1,95 @@
+<mat-card>
+    <mat-card-title>Result DashBoard</mat-card-title>
+    <mat-card-subtitle>Bca</mat-card-subtitle>
+</mat-card><br><br>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+             <div class="col-md-4" *ngFor="let dat of user_result_det;let i=index">
+                <mat-card>
+                    <mat-card-title>{{i+1}} ) {{dat.quizdata.title}}</mat-card-title>
+                    <mat-card-subtitle>{{dat.quizdata.category.title}}</mat-card-subtitle>
+                    <table border="3">
+                        <tr>
+                            <th>Marks Obtained</th>
+                            <td>{{dat.marks_obtained}}</td>
+                        </tr>
+                        <tr>
+                
+                            <th>Total</th>
+                            <td>{{dat.marks_get}}</td>
+                        </tr>
+                        <tr>
+                            <th>Result</th>
+                            <td>{{dat.result}}</td>
+                        </tr>
+                    </table>
+                </mat-card>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- 
+<mat-card>
+    <mat-card-title>Result DashBoard</mat-card-title>
+    <mat-card-subtitle>Bca</mat-card-subtitle>
+
+    <mat-card-content>
+    <div class="bootstrap-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                        <div class="col-md-4" *ngFor="let dat of user_result_det;let i=index">
+                            <mat-card class="mat-boxs">
+                                <mat-card-title>{{i}} )  {{dat.quizdata.title}}</mat-card-title>
+                                <table border="3">
+                                    <tr>
+                                        <th>Marks Obtained</th>
+                                        <td>{{dat.marks_obtained}}</td>
+                                    </tr>
+                                    <tr>
+                            
+                                        <th>Total</th>
+                                        <td>{{dat.marks_get}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Result</th>
+                                        <td>{{dat.result}}</td>
+                                    </tr>
+                                </table>
+                            </mat-card>
+                        </div>
+            </div>
+        </div>
+    </div>        
+    </mat-card-content>
+
+</mat-card>
+
+<!-- <mat-card>
+    {{objer |json}}
+</mat-card> -->
+
+
+<!-- <mat-card>
+    <mat-card-title>{{i}} )  {{dat.quizdata.title}}</mat-card-title>
+    <table border="3">
+        <tr>
+            <th>Marks Obtained</th>
+            <td>{{dat.marks_obtained}}</td>
+        </tr>
+        <tr>
+
+            <th>Total</th>
+            <td>{{dat.marks_get}}</td>
+        </tr>
+        <tr>
+            <th>Result</th>
+            <td>{{dat.result}}</td>
+        </tr>
+    </table>
+</mat-card> --> -->

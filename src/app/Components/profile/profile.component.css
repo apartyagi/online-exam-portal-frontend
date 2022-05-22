@@ -1,0 +1,16 @@
+.example-header-image {
+    background-image: url('https://i.imgur.com/6XaGJwG.jpg');
+    background-size: cover;
+  }
+.table-pro{
+    width: 100%;
+    border-collapse: collapse;
+    border: 0.5px solid #e2e2e2;
+}
+.table-pro tr td{
+    padding: 20px ;
+    border: 0.5px solid #e2e2e2;
+}
+.table-pro tr {
+    border: 0.5px solid #e2e2e2;
+}

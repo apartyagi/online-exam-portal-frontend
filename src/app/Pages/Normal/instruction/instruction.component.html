@@ -1,0 +1,49 @@
+{{load_quiz.id}}
+{{load_quiz.title}}
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                    <div class="text-center">
+                        <h1>Read the Instruction Carefully</h1>
+                    </div>
+                    <mat-card-header>
+                        <mat-card-title>
+                            {{load_quiz.title}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{load_quiz.description}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <hr>
+                        <mat-card-title>Important Instruction</mat-card-title>
+                        <ul>
+                            <li>The Quiz only for practice purpose</li>
+                            <li>You have only 20 minut to complete this quiz</li>
+                            <li>Total marks is {{load_quiz.max_marks }}</li>
+                            <li>There Are {{load_quiz.no_of_question }} Number of Question</li>
+                            <li>The Quiz only for practice purpose</li>
+                            <li>All Question Type is Mcq</li>
+                        </ul>
+                        <hr>
+
+                        <mat-card-title>Attemting Question</mat-card-title>
+                        <ul>
+                            <li>To Start This Quiz Press Start Button</li>
+                            <li>To Start This Quiz Press Start Button</li>
+                            <li>To Start This Quiz Press Start Button</li>
+                            <li>To Start This Quiz Press Start Button</li>
+                            <li>To Start This Quiz Press Start Button</li>
+                        </ul>
+                    </mat-card-content>
+                        <div class="text-center">
+                        <button mat-raised-button (click)="start_exam()" color="warn">Start</button>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+</div>
