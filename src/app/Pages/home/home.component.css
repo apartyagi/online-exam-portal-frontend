@@ -1,0 +1,32 @@
+header{
+    /*linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),*/
+    background-image: url('https://images.pexels.com/photos/301920/pexels-photo-301920.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.title{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.title h1{
+    color: white;
+    font-size: 70px;
+}
+.btns{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+  

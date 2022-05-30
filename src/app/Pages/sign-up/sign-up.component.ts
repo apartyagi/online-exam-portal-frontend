@@ -29,7 +29,7 @@ export class SignUpComponent implements OnInit {
   
   func(){
     if(this.userdetail==null || this.userdetail.username==''){
-      this._snackBar.open("Please Fill All Details Correctly","",{verticalPosition:'top',
+      this._snackBar.open("Please Fill All Details Correctly","X",{verticalPosition:'top',
       horizontalPosition:'right',duration:3000});
     }
     else{
@@ -44,10 +44,14 @@ export class SignUpComponent implements OnInit {
       else{
         this.user_ser.create_user_data_post(this.userdetail).subscribe(
           (data)=>{
-            Swal.fire('','Ho Gya Bhai','success');
+            Swal.fire('','Account created Successfully','success');
+            setTimeout(()=>{
+              window.location.href='/login';
+            },1000) 
+            
           },
           (error)=>{
-            Swal.fire('','Error Aa gyi Bhai!!',"error");
+            Swal.fire('','Something Wents Wrong..',"error");
           }
         )
       }

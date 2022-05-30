@@ -1,5 +1,5 @@
 import { LocationStrategy } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/Services/login.service';
 import { QuestionService } from 'src/app/Services/question.service';
@@ -23,7 +23,7 @@ export class StartExamComponent implements OnInit {
   submit_res = false;
   timer = 0;
   quiz_id = 0;
-  total_marks_paper = 0;
+  total_marks = 0;
 
   question_load = [
     {
@@ -68,34 +68,40 @@ export class StartExamComponent implements OnInit {
     );
   }
 
+  submitresulttoserver(){
+    let answer_submit = {
+      marks_get: '',
+      marks_obtained: '',
+      result: '',
+      quizdata: {
+        id:''+this.quiz_id,
+      },
+      userdata: {
+        id:''+this.current_user_details.id,
+      },
+    };
+      answer_submit.marks_get=''+this.result;
+      answer_submit.marks_obtained=''+this.total_marks;
+
+    this._questserv.add_answer(answer_submit).subscribe((data:any)=>{
+      console.log(answer_submit);
+  },(err:any)=>{
+  console.log(err);
+  })
+  }
+
   submit_exam() {
     this._questserv.submit_result(this.question_load).subscribe(
       (dat: any) => {
-        this.total_ques = dat.total_question;
-        this.atteptanswe = dat.attempted_question;
-        this.per_question_n = dat.per_question_marks;
-        this.correctanswe = dat.correct_answer;
-        this.wronganswe = dat.wrong_answer;
-        this.total_marks_paper = dat.total_marks;
-        this.result = dat.result;
+        this.total_ques = dat.total_question;  //5
+        this.atteptanswe = dat.attempted_question;  //5
+        this.per_question_n = dat.per_question_marks; //100
+        this.correctanswe = dat.correct_answer;  //5
+        this.wronganswe = dat.wrong_answer;  //0
+        this.total_marks = dat.total_marks;  //500
+        this.result = dat.result; //500
         this.submit_res = true;
-
-        let answer_submit = {
-          marks_get: '',
-          marks_obtained: '',
-          result: '',
-          quizdata: {
-            id:''+this.quiz_id,
-          },
-          userdata: {
-            id:''+this.current_user_details.id,
-          },
-        };
-        this._questserv.add_answer(answer_submit).subscribe((data:any)=>{
-              console.log(answer_submit);
-        },(err:any)=>{
-          console.log(err);
-        })
+        this.submitresulttoserver();
       },
       (err: any) => {
         console.log('err');
@@ -131,4 +137,11 @@ export class StartExamComponent implements OnInit {
     let ss = this.timer - mm * 60;
     return `${mm} min :${ss} sec`;
   }
+  
+  @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
+    console.log("Processing beforeunload...");
+    alert("All data will be loss when you refresh the page")
+    // Do more processing...
+    event.returnValue = false;
+}  
 }

@@ -63,13 +63,22 @@ export class ResultsComponent implements OnInit {
     },(err:any)=>{
       this._logSer.logout();
     })
-    this.fetch_all_given_quiz();
+    this.get_current_user();
+  }
+  
+  get_current_user(){
+    let td=this._logSer.getUser();  
+    let op=td.id;
+    this.fetch_all_given_quiz(op);
+
   }
 
-  fetch_all_given_quiz(){
-    this._resuSer.fetch_all_quiz(3).subscribe((data:any)=>{  
+  fetch_all_given_quiz(td:any){
+    this._resuSer.fetch_all_quiz(td).subscribe((data:any)=>{  
       this.user_result_det=data;
       this.objer=data;
+      console.log(this.userdet.id);
+      console.log(this.user_result_det)
     },(err:any)=>{
 
     });
